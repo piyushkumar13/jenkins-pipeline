@@ -24,11 +24,11 @@ pipeline {
 
             }
         }
-        stage('Deploy stage') {
-            steps {
-                sh 'mvn spring-boot:run'
-
-            }
-        }
+//        stage('Deploy stage') {
+//            steps {
+//                sh 'mvn spring-boot:run'
+//
+//            }
+//        }
     }
 }
