@@ -34,7 +34,7 @@ pipeline {
 
         stage('Printing Parameter values'){
             steps {
-                sh 'echo "The name of the job is ${params.jobName}'
+                sh 'echo "The name of the job is ${params.jobName}"'
             }
         }
 
@@ -72,7 +72,7 @@ pipeline {
     }
     post {
         always {
-            echo 'The pipeline has finish!'
+            echo "The pipeline has finish!"
         }
     }
 }
