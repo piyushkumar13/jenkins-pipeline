@@ -71,6 +71,8 @@ pipeline {
 //        }
     }
     post {
-        echo 'The pipeline has finish!'
+        always {
+            echo 'The pipeline has finish!'
+        }
     }
 }
