@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Print environment variables') {
             steps {
-                sh 'echo printenv'
+                echo "My name is ${MY_NAME}"
             }
         }
 
