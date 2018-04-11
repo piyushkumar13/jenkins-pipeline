@@ -5,6 +5,10 @@ pipeline {
         jdk 'my-java'
     }
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '4'))
+    }
+
     environment {
         MY_NAME = "Piyush Kumar"
         MY_ADDRESS = "abc"
@@ -25,7 +29,9 @@ pipeline {
 
             steps {
                 sh '''
-                            echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} \n"
+                            echo "Running ${BUILD_ID} on ${JENKINS_URL} \n"
+                            echo "Jenkins home is ${JENKINS_HOME} \n"
+                            echo "Jenkins Job url is ${JOB_URL} \n"
                             echo "This is the example of echoing predefined environment variables."
 
                           '''
@@ -34,7 +40,7 @@ pipeline {
 
         stage('Printing Parameter values'){
             steps {
-                sh 'echo "The name of the job is ${params.jobName}"'
+                sh 'echo "The name of the job is ${jobName}"'
             }
         }
 
