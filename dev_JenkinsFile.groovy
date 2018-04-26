@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     tools {
         maven 'my-maven'
         jdk 'my-java'
@@ -20,6 +20,17 @@ pipeline {
 
     stages {
         stage('Print environment variables') {
+
+            input(
+                    id: 'userInput', message: 'Let\'s promote?', parameters: [
+                    [$class: 'TextParameterDefinition', defaultValue: 'valueone', description: 'one', name: 'valueone'],
+                    [$class: 'TextParameterDefinition', defaultValue: 'valuetwo', description: 'two', name: 'valuetwo'],
+                    [$class: 'TextParameterDefinition', defaultValue: 'valuethree', description: 'three', name: 'valuethree'],
+                    [$class: 'TextParameterDefinition', defaultValue: 'valuefour', description: 'fouter', name: 'valuefour']
+            ])
+
+            agent any
+
             steps {
                 echo "My name is ${MY_NAME}"
             }
@@ -55,6 +66,8 @@ pipeline {
                 sh 'mvn test'
             }
         }
+
+        add(ED)
 
         stage('Install stage') {
             input {
