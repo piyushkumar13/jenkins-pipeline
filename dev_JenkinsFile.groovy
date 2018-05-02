@@ -39,8 +39,8 @@ pipeline {
 //                        string(name: 'PERSON', defaultValue: MY_NAME, description: 'Who should I say hello to?')
 //                        string(name: 'Last', defaultValue: 'kumar', description: 'Who should I say hello to?')
 
-                        [defaultValue: 'Piyush', description: 'Your name', name: 'pname', successfulOnly: false]
-                        [defaultValue: 'Kumar', description: 'Your Last name', name: 'lname', successfulOnly: false]
+                        [$class: 'GlobalVariableStringParameterDefinition',defaultValue: 'Piyush', description: 'Your name', name: 'pname']
+                        [$class: 'GlobalVariableStringParameterDefinition',defaultValue: 'Kumar', description: 'Your Last name', name: 'lname']
 
 //                        [
 //
