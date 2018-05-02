@@ -31,8 +31,8 @@ pipeline {
                     message 'Let\'s promote?'
                     parameters {
 
-                        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                        string(name: 'Last_', defaultValue: 'kumar', description: 'Who should I say hello to?')
+                        string(name: 'PERSON', defaultValue: '$MY_NAME', description: 'Who should I say hello to?')
+                        string(name: 'Last', defaultValue: 'kumar', description: 'Who should I say hello to?')
 
 //                        [
 //
