@@ -54,6 +54,8 @@ pipeline {
             steps {
                 echo "My name is ${MY_NAME}"
             }
+
+            checkpoint "Printing environment variables complete!!"
         }
 
         stage('Printing predefined environment variables') {
@@ -70,6 +72,8 @@ pipeline {
 
                           '''
             }
+            checkpoint "Printing predefined environment variables complete!!"
+
         }
 
         stage('Printing Parameter values'){
@@ -79,6 +83,9 @@ pipeline {
             steps {
                 sh 'echo "The name of the job is ${jobName}"'
             }
+
+            checkpoint "Printing parameter values complete!!"
+
         }
 
         stage('Compile Stage') {
