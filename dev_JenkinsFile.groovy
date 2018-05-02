@@ -31,24 +31,29 @@ pipeline {
     stages {
         stage('Print environment variables') {
 
-            input message: 'Let\'s promote?', parameters :[
-//                            {
+            input{
+                    id 'userInput'
+                    message 'Let\'s promote?'
+                    parameters {
 
-//                        string(name: 'PERSON', defaultValue: getName, description: 'Who should I say hello to?')
+//                        string(name: 'PERSON', defaultValue: MY_NAME, description: 'Who should I say hello to?')
 //                        string(name: 'Last', defaultValue: 'kumar', description: 'Who should I say hello to?')
 
+                        [defaultValue: 'Piyush', description: 'Your name', name: 'pname', successfulOnly: false]
+                        [defaultValue: 'Kumar', description: 'Your Last name', name: 'lname', successfulOnly: false]
 
+//                        [
+//
+//                                [$class: 'TextParameterDefinition', defaultValue: 'valueone', description: 'one', name: 'valueone'],
+//                                [$class: 'TextParameterDefinition', defaultValue: 'valuetwo', description: 'two', name: 'valuetwo'],
+//                                [$class: 'TextParameterDefinition', defaultValue: 'valuethree', description: 'three', name: 'valuethree'],
+//                                [$class: 'TextParameterDefinition', defaultValue: 'valuefour', description: 'fouter', name: 'valuefour']
+//
+//                        ]
 
-                                [$class: 'GlobalVariableStringParameterDefinition', defaultValue: 'valueone', description: 'one'],
-                                [$class: 'GlobalVariableStringParameterDefinition', defaultValue: 'valuetwo', description: 'two'],
-                                [$class: 'GlobalVariableStringParameterDefinition', defaultValue: 'valuethree', description: 'three'],
-                                [$class: 'GlobalVariableStringParameterDefinition', defaultValue: 'valuefour', description: 'fouter']
+                    }
 
-                        ]
-
-//                    }
-
-
+            }
 
             agent {
                 label 'rhel6'
