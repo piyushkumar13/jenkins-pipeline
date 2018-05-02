@@ -34,7 +34,7 @@ pipeline {
             input{
                     id 'userInput'
                     message 'Let\'s promote?'
-                    parameters [
+                    parameters {[
 //                            {
 
 //                        string(name: 'PERSON', defaultValue: getName, description: 'Who should I say hello to?')
@@ -47,7 +47,7 @@ pipeline {
                                 [$class: 'GlobalVariableStringParameterDefinition', defaultValue: 'valuethree', description: 'three'],
                                 [$class: 'GlobalVariableStringParameterDefinition', defaultValue: 'valuefour', description: 'fouter']
 
-                        ]
+                        ]}
 
 //                    }
 
