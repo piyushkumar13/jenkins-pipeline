@@ -1,8 +1,13 @@
 pipeline {
     agent none
-    tools {
-        maven 'my-maven'
-        jdk 'my-java'
+//    tools {
+//        maven 'my-maven'
+//        jdk 'my-java'
+//    }
+
+        tools {
+        maven 'mvn325'
+        jdk 'jdk18'
     }
 
     options {
@@ -29,7 +34,9 @@ pipeline {
                     [$class: 'TextParameterDefinition', defaultValue: 'valuefour', description: 'fouter', name: 'valuefour']
             ])
 
-            agent any
+            agent {
+                label 'rhel6'
+            }
 
             steps {
                 echo "My name is ${MY_NAME}"
@@ -38,6 +45,9 @@ pipeline {
 
         stage('Printing predefined environment variables') {
 
+            agent {
+                label 'rhel6'
+            }
             steps {
                 sh '''
                             echo "Running ${BUILD_ID} on ${JENKINS_URL} \n"
@@ -50,24 +60,32 @@ pipeline {
         }
 
         stage('Printing Parameter values'){
+            agent {
+                label 'rhel6'
+            }
             steps {
                 sh 'echo "The name of the job is ${jobName}"'
             }
         }
 
         stage('Compile Stage') {
+            agent {
+                label 'rhel6'
+            }
             steps {
                 sh 'mvn clean compile'
             }
         }
 
         stage('Test Stage') {
+            agent {
+                label 'rhel6'
+            }
             steps {
                 sh 'mvn test'
             }
         }
 
-        add(ED)
 
         stage('Install stage') {
             input {
@@ -76,6 +94,9 @@ pipeline {
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
                 }
+            }
+            agent {
+                label 'rhel6'
             }
             steps {
                 sh 'mvn install'
