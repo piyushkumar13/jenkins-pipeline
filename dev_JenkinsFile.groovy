@@ -30,12 +30,12 @@ pipeline {
                     id 'userInput'
                     message 'Let\'s promote?'
                     parameters {
-                        [
-                                [$class: 'TextParameterDefinition', defaultValue: 'valueone', description: 'one', name: 'valueone'],
-                                [$class: 'TextParameterDefinition', defaultValue: 'valuetwo', description: 'two', name: 'valuetwo'],
-                                [$class: 'TextParameterDefinition', defaultValue: 'valuethree', description: 'three', name: 'valuethree'],
+
+                                [$class: 'TextParameterDefinition', defaultValue: 'valueone', description: 'one', name: 'valueone']
+                                [$class: 'TextParameterDefinition', defaultValue: 'valuetwo', description: 'two', name: 'valuetwo']
+                                [$class: 'TextParameterDefinition', defaultValue: 'valuethree', description: 'three', name: 'valuethree']
                                 [$class: 'TextParameterDefinition', defaultValue: 'valuefour', description: 'fouter', name: 'valuefour']
-                        ]
+
                     }
             }
 
