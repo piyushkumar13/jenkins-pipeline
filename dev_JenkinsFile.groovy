@@ -31,10 +31,7 @@ pipeline {
     stages {
         stage('Print environment variables') {
 
-            input{
-                    id 'userInput'
-                    message 'Let\'s promote?'
-                    parameters :[
+            input message: 'Let\'s promote?', parameters :[
 //                            {
 
 //                        string(name: 'PERSON', defaultValue: getName, description: 'Who should I say hello to?')
@@ -51,7 +48,7 @@ pipeline {
 
 //                    }
 
-            }
+
 
             agent {
                 label 'rhel6'
