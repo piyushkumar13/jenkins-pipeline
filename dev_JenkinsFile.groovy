@@ -53,6 +53,7 @@ pipeline {
 
             steps {
                 echo "My name is ${MY_NAME}"
+                echo "The person is ${PERSON}"
                 checkpoint "Printing environment variables complete!!"
 
             }
