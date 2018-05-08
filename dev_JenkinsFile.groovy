@@ -123,14 +123,16 @@ pipeline {
             }
             steps {
 //                input "Should we continue?"
-                input(
-                        id: 'userInput', message: 'Define following to continue', parameters: [
-                        string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
-                        string(name: 'LOCATION', defaultValue: 'Bangalore', description: 'Location of the company')
-                ])
+               script {
+                   def inputValues = input(
+                           id: 'userInput', message: 'Define following to continue', parameters: [
+                           string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
+                           string(name: 'LOCATION', defaultValue: 'Bangalore', description: 'Location of the company')
+                   ])
 
-                echo "Company name is ${COMPANY}"
-                echo "The location is ${LOCATION}"
+                   println("The input values are $inputValues")
+               }
+
 
                 sh 'mvn install'
 
