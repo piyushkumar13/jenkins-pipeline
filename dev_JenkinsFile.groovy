@@ -111,18 +111,20 @@ pipeline {
 
 
         stage('Install stage') {
-//            input {
-//                message "Should we continue?"
-//                ok "Yes, we should."
-//                parameters {
-//                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-//                }
-//            }
-//            agent {
-//                label 'rhel6'
-//            }
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
+            agent {
+                label 'rhel6'
+            }
             steps {
-//                input "Should we continue?"
+
+                /*
+//                The following script was placed to use the environment variable in the parameters for the input()
                 script {
                     def inputValues = input(
                             id: 'userInput', message: 'Define following to continue', parameters: [
@@ -132,14 +134,15 @@ pipeline {
 
                     println("The input values are $inputValues")
 
+//                   We can move this node block outside the script also.
                     node("rhel6") {
                         withMaven(maven: 'mvn325') {
                             sh "mvn install"
                         }
                     }
                 }
-
-//                sh 'mvn install'
+                */
+                sh 'mvn install'
 
             }
         }
