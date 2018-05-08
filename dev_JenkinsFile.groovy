@@ -129,8 +129,8 @@ pipeline {
                         string(name: 'LOCATION', defaultValue: 'Bangalore', description: 'Location of the company')
                 ])
 
-                echo "My name is ${COMPANY}"
-                echo "The person is ${LOCATION}"
+                echo "Company name is ${COMPANY}"
+                echo "The location is ${LOCATION}"
 
                 sh 'mvn install'
 
