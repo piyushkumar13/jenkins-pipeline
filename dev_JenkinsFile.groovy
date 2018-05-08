@@ -123,13 +123,15 @@ pipeline {
             }
             steps {
 //                input "Should we continue?"
-                input {
-                    message "Should we continue?"
-                    ok "Yes, we should."
-                    parameters {
-                        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                    }
-                }
+                input(
+                        id: 'userInput', message: 'Define following to continue', parameters: [
+                        string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
+                        string(name: 'LOCATION', defaultValue: 'Bangalore', description: 'Location of the company')
+                ])
+
+                echo "My name is ${COMPANY}"
+                echo "The person is ${LOCATION}"
+
                 sh 'mvn install'
 
             }
