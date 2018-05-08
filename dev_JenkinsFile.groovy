@@ -127,7 +127,7 @@ pipeline {
                    def inputValues = input(
                            id: 'userInput', message: 'Define following to continue', parameters: [
                            string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
-                           string(name: 'LOCATION', defaultValue: 'Bangalore', description: 'Location of the company')
+                           string(name: 'LOCATION', defaultValue: "$MY_ADDRESS", description: 'Location of the company')
                    ])
 
                    println("The input values are $inputValues")
