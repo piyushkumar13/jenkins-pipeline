@@ -31,20 +31,20 @@ pipeline {
     stages {
         stage('Print environment variables') {
 
-                input {
-                    id 'userInput'
-                    message 'Let\'s promote?'
-                    parameters {
+            input {
+                id 'userInput'
+                message 'Let\'s promote?'
+                parameters {
 
-                        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                        string(name: 'Last', defaultValue: 'kumar', description: 'Who should I say hello to?')
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    string(name: 'Last', defaultValue: 'kumar', description: 'Who should I say hello to?')
 
 //                        [$class: 'GlobalVariableStringParameterDefinition',defaultValue: 'Piyush', description: 'Your name', name: 'pname']
 //                        [$class: 'GlobalVariableStringParameterDefinition',defaultValue: 'Kumar', description: 'Your Last name', name: 'lname']
 
-                    }
-
                 }
+
+            }
 
             agent {
                 label 'rhel6'
@@ -123,21 +123,21 @@ pipeline {
 //            }
             steps {
 //                input "Should we continue?"
-               script {
-                   def inputValues = input(
-                           id: 'userInput', message: 'Define following to continue', parameters: [
-                           string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
-                           string(name: 'LOCATION', defaultValue: "$MY_ADDRESS", description: 'Location of the company')
-                   ])
+                script {
+                    def inputValues = input(
+                            id: 'userInput', message: 'Define following to continue', parameters: [
+                            string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
+                            string(name: 'LOCATION', defaultValue: "$MY_ADDRESS", description: 'Location of the company')
+                    ])
 
-                   println("The input values are $inputValues")
+                    println("The input values are $inputValues")
 
-                   node("rhel6"){
-                       sh 'mvn install'
-
-                   }
-               }
-
+                    node("rhel6") {
+                        withMaven(maven: 'mvn325') {
+                            sh "mvn install"
+                        }
+                    }
+                }
 
 //                sh 'mvn install'
 
