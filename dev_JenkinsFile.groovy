@@ -122,7 +122,14 @@ pipeline {
                 label 'rhel6'
             }
             steps {
-                input "Should we continue?"
+//                input "Should we continue?"
+                input {
+                    message "Should we continue?"
+                    ok "Yes, we should."
+                    parameters {
+                        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    }
+                }
                 sh 'mvn install'
 
             }
