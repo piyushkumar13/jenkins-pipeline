@@ -118,9 +118,9 @@ pipeline {
 //                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 //                }
 //            }
-            agent {
-                label 'rhel6'
-            }
+//            agent {
+//                label 'rhel6'
+//            }
             steps {
 //                input "Should we continue?"
                script {
@@ -131,10 +131,15 @@ pipeline {
                    ])
 
                    println("The input values are $inputValues")
+
+                   node("rhel6"){
+                       sh 'mvn install'
+
+                   }
                }
 
 
-                sh 'mvn install'
+//                sh 'mvn install'
 
             }
         }
