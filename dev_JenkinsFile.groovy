@@ -1,4 +1,4 @@
-def getName(){
+def getName() {
 
     return "Pk"
 }
@@ -10,7 +10,7 @@ pipeline {
 //        jdk 'my-java'
 //    }
 
-        tools {
+    tools {
         maven 'mvn325'
         jdk 'jdk18'
     }
@@ -25,13 +25,13 @@ pipeline {
     }
 
     parameters {
-        string(name: 'jobName', defaultValue: 'my-pipeline-job',description: 'Please enter the jobname')
+        string(name: 'jobName', defaultValue: 'my-pipeline-job', description: 'Please enter the jobname')
     }
 
     stages {
         stage('Print environment variables') {
 
-            input{
+                input {
                     id 'userInput'
                     message 'Let\'s promote?'
                     parameters {
@@ -44,7 +44,7 @@ pipeline {
 
                     }
 
-            }
+                }
 
             agent {
                 label 'rhel6'
@@ -78,7 +78,7 @@ pipeline {
 
         }
 
-        stage('Printing Parameter values'){
+        stage('Printing Parameter values') {
             agent {
                 label 'rhel6'
             }
@@ -111,17 +111,18 @@ pipeline {
 
 
         stage('Install stage') {
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-            }
+//            input {
+//                message "Should we continue?"
+//                ok "Yes, we should."
+//                parameters {
+//                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+//                }
+//            }
             agent {
                 label 'rhel6'
             }
             steps {
+                input "Should we continue?"
                 sh 'mvn install'
 
             }
