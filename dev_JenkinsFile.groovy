@@ -53,14 +53,7 @@ pipeline {
             steps {
                 echo "My name is ${MY_NAME}"
                 echo "The person is ${PERSON}"
-                script {
-                    sh '''
-                            echo "name_framework=nucleus" >> myprop.properties
 
-                   '''
-                    load "myprop.properties"
-                    echo "the name is $name_framework"
-                }
                 checkpoint "Printing environment variables complete!!"
 
             }
