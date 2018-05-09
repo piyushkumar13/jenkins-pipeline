@@ -57,7 +57,9 @@ pipeline {
                             echo "name=Lucky" >> myprop.properties
 
                    '''
+                node("rhel6"){
                 load "myprop.properties"
+                }
                 checkpoint "Printing environment variables complete!!"
 
             }
