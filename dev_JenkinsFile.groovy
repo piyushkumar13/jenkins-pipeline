@@ -53,9 +53,10 @@ pipeline {
             steps {
                 echo "My name is ${MY_NAME}"
                 echo "The person is ${PERSON}"
-                sh """echo employee=Pranav>>employee.properties"""
-                load "employee.properties"
-                echo "The employee name is $employee"
+                sh '''
+                            echo "name=Lucky" >> myprop.properties
+
+                   '''
                 checkpoint "Printing environment variables complete!!"
 
             }
