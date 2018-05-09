@@ -57,6 +57,7 @@ pipeline {
                             echo "name=Lucky" >> myprop.properties
 
                    '''
+                load "myprop.properties"
                 checkpoint "Printing environment variables complete!!"
 
             }
