@@ -57,10 +57,10 @@ pipeline {
 
                 script{
 
-//                    def someDummyValue = "someThing"
+                    def someDummyValue = "someThing"
 
-//                    env.MY_COMPANY = someDummyValue
-                    env.MY_COMPANY = "someThing"
+                    env.MY_COMPANY = someDummyValue
+//                    env.MY_COMPANY = "someThing"
                 }
 
                 echo "Echoing environments in jenkins file"
