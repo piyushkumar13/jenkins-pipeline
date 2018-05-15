@@ -66,6 +66,12 @@ pipeline {
                 echo "Echoing environments in jenkins file"
                 sh "printenv"
 
+                script{
+                    env.MY_COMPANY = "Logmein"
+                }
+
+                echo "Echoing environments in jenkins file after setting my company to logmein"
+                sh "printenv"
                 checkpoint "Printing environment variables complete!!"
 
             }
