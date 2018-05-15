@@ -22,7 +22,7 @@ pipeline {
     environment {
         MY_NAME = "Piyush Kumar"
         MY_ADDRESS = "abc"
-        MY_COMPANY = ''
+//        MY_COMPANY = ''
     }
 
     parameters {
