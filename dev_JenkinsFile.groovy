@@ -22,7 +22,7 @@ pipeline {
     environment {
         MY_NAME = "Piyush Kumar"
         MY_ADDRESS = "abc"
-        MY_COMPANY = ''
+        MY_COMPANY = ""
     }
 
     parameters {
@@ -56,7 +56,10 @@ pipeline {
                 echo "The person is ${PERSON}"
 
                 script{
-                    env.MY_COMPANY = "Logmein"
+
+                    def someDummyValue = "someThing"
+
+                    env.MY_COMPANY = someDummyValue
                 }
 
                 echo "Echoing environments in jenkins file"
