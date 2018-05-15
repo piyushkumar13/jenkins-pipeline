@@ -22,6 +22,7 @@ pipeline {
     environment {
         MY_NAME = "Piyush Kumar"
         MY_ADDRESS = "abc"
+        MY_COMPANY = ''
     }
 
     parameters {
@@ -53,6 +54,13 @@ pipeline {
             steps {
                 echo "My name is ${MY_NAME}"
                 echo "The person is ${PERSON}"
+
+                script{
+                    env.MY_COMPANY = "Logmein"
+                }
+
+                echo "Echoing environments in jenkins file"
+                sh "printenv"
 
                 checkpoint "Printing environment variables complete!!"
 
