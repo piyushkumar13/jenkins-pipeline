@@ -38,7 +38,7 @@ pipeline {
                 parameters {
 
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                    string(name: 'Last', defaultValue: 'kumar', description: 'Who should I say hello to?')
+                    string(name: 'LAST_NAME', defaultValue: 'kumar', description: 'Who should I say hello to?')
 
 //                        [$class: 'GlobalVariableStringParameterDefinition',defaultValue: 'Piyush', description: 'Your name', name: 'pname']
 //                        [$class: 'GlobalVariableStringParameterDefinition',defaultValue: 'Kumar', description: 'Your Last name', name: 'lname']
@@ -54,6 +54,7 @@ pipeline {
             steps {
                 echo "My name is ${MY_NAME}"
                 echo "The person is ${PERSON}"
+                echo "The last name is ${LAST_NAME}"
 
                 script{
 
