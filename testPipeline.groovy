@@ -68,8 +68,8 @@ pipeline {
 
           node("rhel6") {
 
-            sh 'echo "The name of the job is ${jobName}"'
-            sh 'echo "the input value is ${inputValues}"'
+            echo "The name of the job is ${jobName}"
+            echo "the input value is ${inputValues}"
             println("The input value in println is "+ inputValues)
           }
 
