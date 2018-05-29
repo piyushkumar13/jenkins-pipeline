@@ -55,9 +55,8 @@ pipeline {
 
       steps {
 
-        def inputValues = null
-
         script {
+          def inputValues = null
 
           if (${jobName} == "my-pipeline-job") {
             inputValues = input(
@@ -67,13 +66,16 @@ pipeline {
             ])
           }
 
+          node("rhel6") {
+
+            sh 'echo "The name of the job is ${jobName}"'
+            sh 'echo "the input value is ${inputValues}"'
+            println("The input value in println is "+ inputValues)
+          }
+
         }
 
-        node("rhel6") {
 
-          sh 'echo "The name of the job is ${jobName}"'
-          sh 'echo "the input value is ${inputValues}"'
-        }
 
         checkpoint "Printing parameter values complete!!"
       }
