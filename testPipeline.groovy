@@ -58,7 +58,7 @@ pipeline {
         script {
           def inputValues = null
 
-          if (${jobName} == "my-pipeline-job") {
+          if ("${jobName}" == "my-pipeline-job") {
             inputValues = input(
               id: 'userInput', message: 'Define following to continue', parameters: [
               string(name: 'COMPANY', defaultValue: 'LogMeIn', description: 'Name of the company'),
